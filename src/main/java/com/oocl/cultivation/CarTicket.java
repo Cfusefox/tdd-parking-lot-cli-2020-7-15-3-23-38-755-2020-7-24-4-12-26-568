@@ -1,7 +1,13 @@
 package com.oocl.cultivation;
 
 public class CarTicket {
-    public CarTicket() {
+    private Car car;
 
+    public Car getCar() {
+        return car;
+    }
+
+    public CarTicket(Car car) {
+        this.car = car;
     }
 }

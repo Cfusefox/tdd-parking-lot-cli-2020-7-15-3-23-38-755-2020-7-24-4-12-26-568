@@ -32,12 +32,10 @@ public class ParkingLotTest {
 
         //when
         Car fetchCar = parkingLot.fetch(carTicket);
-
-
+        
         //then
         assertNotNull(fetchCar);
         assertEquals(car, fetchCar);
-
 
     }
 
