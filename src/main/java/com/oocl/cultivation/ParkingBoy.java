@@ -11,4 +11,8 @@ public class ParkingBoy {
     public CarTicket parkingCar(Car car) {
         return this.parkingLot.park(car);
     }
+
+    public Car fetchCar(CarTicket carTicket) {
+        return null;
+    }
 }
