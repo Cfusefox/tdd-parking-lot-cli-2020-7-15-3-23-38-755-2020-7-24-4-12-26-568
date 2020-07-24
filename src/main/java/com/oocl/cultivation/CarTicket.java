@@ -10,4 +10,8 @@ public class CarTicket {
     public CarTicket(Car car) {
         this.car = car;
     }
+
+    public CarTicket() {
+
+    }
 }

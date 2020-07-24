@@ -5,8 +5,7 @@ import com.oocl.cultivation.CarTicket;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
 
@@ -37,6 +36,24 @@ public class ParkingLotTest {
         assertNotNull(fetchCar);
         assertEquals(car, fetchCar);
 
+    }
+
+    @Test
+    void should_return_false_when_fetch_car_from_parking_lot_given_diffience_car() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car carOne = new Car();
+        Car carTwo = new Car();
+        CarTicket carOneTicket = parkingLot.park(carOne);
+        CarTicket carTwoTicket = parkingLot.park(carTwo);
+
+
+        //when
+        Car fetchCarOne = parkingLot.fetch(carOneTicket);
+        Car fetchCarTwo = parkingLot.fetch(carTwoTicket);
+
+        //given
+        assertNotEquals(fetchCarOne, fetchCarTwo);
     }
 
 }
