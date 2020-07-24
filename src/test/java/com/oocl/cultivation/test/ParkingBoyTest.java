@@ -16,10 +16,10 @@ public class ParkingBoyTest {
         //given
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        CarTicket carTicket = parkingBoy.parkingCar(car, parkingLot);
+        CarTicket carTicket = parkingBoy.parkingCar(car);
 
         //then
         assertNotNull(carTicket);
