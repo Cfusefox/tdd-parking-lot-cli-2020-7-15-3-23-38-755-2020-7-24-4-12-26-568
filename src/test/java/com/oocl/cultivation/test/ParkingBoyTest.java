@@ -78,6 +78,7 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
+        parkingBoy.fetchCar(carTicket);
         String actual = parkingBoy.answerCustomerMessage(carTicket);
 
         //then

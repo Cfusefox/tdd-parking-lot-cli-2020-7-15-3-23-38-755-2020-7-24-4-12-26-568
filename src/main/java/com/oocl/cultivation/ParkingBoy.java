@@ -10,6 +10,7 @@ public class ParkingBoy {
 
     public ParkingBoy(ArrayList<ParkingLot> parkingLotList) {
         this.parkingLots = parkingLotList;
+        this.errorMessage = null;
     }
 
     public CarTicket parkingCar(Car car) {
