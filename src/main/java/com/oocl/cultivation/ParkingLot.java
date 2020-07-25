@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 public class ParkingLot {
 
     private String errorMessage;
-    HashMap<CarTicket, Car> parkingRoom = new HashMap<>();
+    LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
 
     public String getErrorMessage() {
         return errorMessage;
@@ -23,7 +23,7 @@ public class ParkingLot {
         return carTicket;
     }
 
-    public HashMap<CarTicket, Car> getParkingRoom() {
+    public LinkedHashMap<CarTicket, Car> getParkingRoom() {
         return parkingRoom;
     }
 

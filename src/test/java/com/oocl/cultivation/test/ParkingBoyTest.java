@@ -124,7 +124,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    void should_return_true_when_parking_car_into_parking_lot_given_two_car() {
+    void should_return_true_when_parking_car_into_parking_lot_given_many_car() {
         //given
         ArrayList<Car> newCarList = new ArrayList<>();
         for(int index = 0; index < 10; index++) {
@@ -140,7 +140,7 @@ public class ParkingBoyTest {
         for(int number = 0; number < 10; number++) {
             parkingBoy.parkingCar(newCarList.get(number));
         }
-        HashMap<CarTicket, Car> parkingRoom = parkingLot.getParkingRoom();
+        LinkedHashMap<CarTicket, Car> parkingRoom = parkingLot.getParkingRoom();
         for (Map.Entry<CarTicket, Car> entry : parkingRoom.entrySet()) {
             parkedCarList.add(entry.getValue());
         }
