@@ -18,4 +18,8 @@ public class ParkingLot {
     public Car fetch(CarTicket carTicket) {
         return this.parkingRoom.remove(carTicket);
     }
+
+    public String checkCarTicketIsValid(CarTicket carTicket) {
+        return "Unrecognized parking ticket.";
+    }
 }

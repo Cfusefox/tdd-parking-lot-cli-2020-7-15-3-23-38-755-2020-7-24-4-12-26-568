@@ -21,7 +21,7 @@ public class ParkingBoy {
     }
 
     public String answerCustomerMessage(CarTicket carTicket) {
-        return null;
+        return this.parkingLot.checkCarTicketIsValid(carTicket);
     }
 
 }
