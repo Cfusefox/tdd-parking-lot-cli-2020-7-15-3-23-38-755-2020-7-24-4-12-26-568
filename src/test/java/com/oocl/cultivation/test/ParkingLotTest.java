@@ -39,7 +39,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_false_when_fetch_car_from_parking_lot_given_diffience_car() {
+    void should_return_false_when_fetch_car_from_parking_lot_given_difference_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car carOne = new Car();
@@ -54,6 +54,24 @@ public class ParkingLotTest {
 
         //given
         assertNotEquals(fetchCarOne, fetchCarTwo);
+    }
+
+    @Test
+    void should_return_null_when_fetch_car_from_parking_lot_given_wrong_ticket() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+
+        CarTicket wrongTicket = new CarTicket(car);
+
+        //when
+        Car fetchCar = parkingLot.fetch(wrongTicket);
+
+
+        //given
+        assertNull(fetchCar);
+
+
     }
 
 }

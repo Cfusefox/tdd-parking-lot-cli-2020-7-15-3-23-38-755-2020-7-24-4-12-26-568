@@ -11,7 +11,4 @@ public class CarTicket {
         this.car = car;
     }
 
-    public CarTicket() {
-
-    }
 }
