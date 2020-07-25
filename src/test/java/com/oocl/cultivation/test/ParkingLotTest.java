@@ -71,7 +71,6 @@ public class ParkingLotTest {
         //given
         assertNull(fetchCar);
 
-
     }
 
 }
