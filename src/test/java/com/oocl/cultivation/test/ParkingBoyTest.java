@@ -7,6 +7,9 @@ import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -120,5 +123,32 @@ public class ParkingBoyTest {
         assertEquals("Not enough position.", actual);
     }
 
+    @Test
+    void should_return_true_when_parking_car_into_parking_lot_given_two_car() {
+        //given
+        ArrayList<Car> newCarList = new ArrayList<>();
+        for(int index = 0; index < 10; index++) {
+            newCarList.add(new Car());
+        }
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        ArrayList<Car> parkedCarList = new ArrayList<>();
+
+        //when
+        for(int number = 0; number < 10; number++) {
+            parkingBoy.parkingCar(newCarList.get(number));
+        }
+        HashMap<CarTicket, Car> parkingRoom = parkingLot.getParkingRoom();
+        for (Map.Entry<CarTicket, Car> entry : parkingRoom.entrySet()) {
+            parkedCarList.add(entry.getValue());
+        }
+
+        //then
+        for(int unit = 0; unit < 10; unit++) {
+            assertEquals(newCarList.get(unit), parkedCarList.get(unit));
+        }
+    }
 
 }

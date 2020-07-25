@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class ParkingLot {
 
@@ -20,6 +21,10 @@ public class ParkingLot {
         CarTicket carTicket = new CarTicket(car);
         this.parkingRoom.put(carTicket, car);
         return carTicket;
+    }
+
+    public HashMap<CarTicket, Car> getParkingRoom() {
+        return parkingRoom;
     }
 
     public Car fetch(CarTicket carTicket) {
