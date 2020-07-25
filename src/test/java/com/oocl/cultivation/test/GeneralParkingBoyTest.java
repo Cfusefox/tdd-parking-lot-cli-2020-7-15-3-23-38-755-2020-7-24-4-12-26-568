@@ -2,18 +2,17 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingBoy;
+import com.oocl.cultivation.GeneralParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ParkingBoyTest {
+public class GeneralParkingBoyTest {
 
     @Test
     void should_return_car_ticket_when_parking_car_into_paring_lot_given_car() {
@@ -22,7 +21,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
         CarTicket carTicket = parkingBoy.parkingCar(car);
@@ -39,7 +38,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
 
         CarTicket carTicket = parkingBoy.parkingCar(car);
@@ -58,7 +57,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
         Car car = parkingBoy.fetchCar(carTicket);
@@ -75,7 +74,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
         parkingBoy.fetchCar(carTicket);
@@ -93,7 +92,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
         String actual = parkingBoy.answerCustomerMessage(null);
@@ -112,7 +111,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
          //when
         for(int number = 0; number < carList.size(); number++) {
@@ -134,7 +133,7 @@ public class ParkingBoyTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
         ArrayList<Car> parkedCarList = new ArrayList<>();
 
         //when
