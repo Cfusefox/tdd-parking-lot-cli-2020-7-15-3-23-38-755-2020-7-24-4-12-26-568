@@ -23,6 +23,7 @@ public class ParkingLot {
     }
 
     public Car fetch(CarTicket carTicket) {
+        this.errorMessage = null;
         if(this.parkingRoom.get(carTicket) == null) {
             this.errorMessage = "Unrecognized parking ticket.";
         }

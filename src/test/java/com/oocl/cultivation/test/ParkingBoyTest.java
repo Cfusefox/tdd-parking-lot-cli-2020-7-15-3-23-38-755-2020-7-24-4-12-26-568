@@ -16,8 +16,10 @@ public class ParkingBoyTest {
     void should_return_car_ticket_when_parking_car_into_paring_lot_given_car() {
         //given
         Car car = new Car();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         CarTicket carTicket = parkingBoy.parkingCar(car);
@@ -31,8 +33,12 @@ public class ParkingBoyTest {
     void should_return_car_when_fetch_car_from_parking_lot_when_given_car_ticket() {
         //given
         Car car = new Car();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+
+
         CarTicket carTicket = parkingBoy.parkingCar(car);
 
         //when
@@ -46,8 +52,10 @@ public class ParkingBoyTest {
     void should_return_null_when_fetch_car_from_parking_lot_when_given_null_ticket() {
         //given
         CarTicket carTicket = null;
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         Car car = parkingBoy.fetchCar(carTicket);
@@ -61,7 +69,10 @@ public class ParkingBoyTest {
         //given
         Car car = new Car();
         CarTicket carTicket = new CarTicket(car);
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         String actual = parkingBoy.answerCustomerMessage(carTicket);
@@ -75,7 +86,10 @@ public class ParkingBoyTest {
         //given
         Car car = new Car();
         CarTicket carTicket = new CarTicket(car);
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
         //when
         String actual = parkingBoy.answerCustomerMessage(null);
@@ -91,8 +105,10 @@ public class ParkingBoyTest {
         for(int index = 0; index < 11; index++) {
             carList.add(new Car());
         }
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingLots.add(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
          //when
         for(int number = 0; number < carList.size(); number++) {
@@ -103,4 +119,6 @@ public class ParkingBoyTest {
         //then
         assertEquals("Not enough position.", actual);
     }
+
+
 }
