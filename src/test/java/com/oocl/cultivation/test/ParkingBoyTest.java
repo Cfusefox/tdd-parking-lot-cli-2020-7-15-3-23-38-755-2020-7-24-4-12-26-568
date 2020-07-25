@@ -53,5 +53,19 @@ public class ParkingBoyTest {
         //then
         assertNull(car);
     }
+
+    @Test
+    void should_return_unrecognized_parking_ticket_when_answer_customer_message_given_wrong_ticket() {
+        //given
+        Car car = new Car();
+        CarTicket carTicket = new CarTicket(car);
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        //when
+        String actual = parkingBoy.answerCustomerMessage(carTicket);
+
+        //then
+        assertEquals("Unrecognized parking ticket.", actual);
+    }
     
 }

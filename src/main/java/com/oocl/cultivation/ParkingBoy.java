@@ -8,6 +8,10 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
+    public ParkingBoy() {
+        this.parkingLot = new ParkingLot();
+    }
+
     public CarTicket parkingCar(Car car) {
         return this.parkingLot.park(car);
     }
@@ -15,4 +19,9 @@ public class ParkingBoy {
     public Car fetchCar(CarTicket carTicket) {
         return carTicket == null ? null : this.parkingLot.fetch(carTicket);
     }
+
+    public String answerCustomerMessage(CarTicket carTicket) {
+        return null;
+    }
+
 }
