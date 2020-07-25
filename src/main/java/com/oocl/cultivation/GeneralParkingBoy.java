@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class GeneralParkingBoy implements ParkingBoy{
 
 
-    private ArrayList<ParkingLot> parkingLots;
+    private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
 
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {

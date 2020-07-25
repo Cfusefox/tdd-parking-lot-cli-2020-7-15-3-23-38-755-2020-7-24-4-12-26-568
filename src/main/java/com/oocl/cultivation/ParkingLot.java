@@ -7,13 +7,26 @@ public class ParkingLot {
 
     private String errorMessage;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
+    private int volume;
+
+    public ParkingLot(int volume) {
+        this.volume = volume;
+    }
+
+    public ParkingLot() {
+        this.volume = 10;
+    }
 
     public String getErrorMessage() {
         return errorMessage;
     }
 
+    public int getVolume() {
+        return volume;
+    }
+
     public CarTicket park(Car car) {
-        if(parkingRoom.size() >= 10) {
+        if(parkingRoom.size() >= this.volume) {
             this.errorMessage = "Not enough position.";
             return null;
         }
