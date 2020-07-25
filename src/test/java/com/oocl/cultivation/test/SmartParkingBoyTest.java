@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class SmartParkingBoyTest {
 
     @Test
-    void should_return_true_when_parking_car_into_parking_lot_given_two_car() {
+    void should_return_true_when_parking_car_into_parking_lot_given_four_car() {
         //given
         Car carOne = new Car();
         Car carTwo = new Car();

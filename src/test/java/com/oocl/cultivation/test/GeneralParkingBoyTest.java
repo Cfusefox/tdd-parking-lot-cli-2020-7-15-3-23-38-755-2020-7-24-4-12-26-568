@@ -127,12 +127,14 @@ public class GeneralParkingBoyTest {
     void should_return_true_when_parking_car_into_parking_lot_given_many_car() {
         //given
         ArrayList<Car> newCarList = new ArrayList<>();
-        for(int index = 0; index < 10; index++) {
+        for(int index = 0; index < 11; index++) {
             newCarList.add(new Car());
         }
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLot = new ParkingLot();
-        parkingLots.add(parkingLot);
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
         GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
         ArrayList<Car> parkedCarList = new ArrayList<>();
 
@@ -140,7 +142,8 @@ public class GeneralParkingBoyTest {
         for(int number = 0; number < 10; number++) {
             parkingBoy.parkingCar(newCarList.get(number));
         }
-        LinkedHashMap<CarTicket, Car> parkingRoom = parkingLot.getParkingRoom();
+        CarTicket eleventhCarTiclet = parkingBoy.parkingCar(newCarList.get(10));
+        LinkedHashMap<CarTicket, Car> parkingRoom = parkingLot1.getParkingRoom();
         for (Map.Entry<CarTicket, Car> entry : parkingRoom.entrySet()) {
             parkedCarList.add(entry.getValue());
         }
@@ -149,6 +152,7 @@ public class GeneralParkingBoyTest {
         for(int unit = 0; unit < 10; unit++) {
             assertEquals(newCarList.get(unit), parkedCarList.get(unit));
         }
+        assertEquals(newCarList.get(10), parkingLot2.getParkingRoom().get(eleventhCarTiclet));
     }
 
 }
