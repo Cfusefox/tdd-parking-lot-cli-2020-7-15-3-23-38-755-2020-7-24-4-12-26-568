@@ -16,6 +16,7 @@ public class SmartParkingBoyTest {
         Car carOne = new Car();
         Car carTwo = new Car();
         Car carThree = new Car();
+        Car carFour = new Car();
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot1 = new ParkingLot();
         ParkingLot parkingLot2 = new ParkingLot();
@@ -27,14 +28,17 @@ public class SmartParkingBoyTest {
         CarTicket carTicket1 = smartParkingBoy.parkingCar(carOne);
         CarTicket carTicket2 = smartParkingBoy.parkingCar(carTwo);
         CarTicket carTicket3 = smartParkingBoy.parkingCar(carThree);
+        CarTicket carTicket4 = smartParkingBoy.parkingCar(carFour);
         Car fetchCar1 = parkingLot1.getParkingRoom().get(carTicket1);
         Car fetchCar2 = parkingLot2.getParkingRoom().get(carTicket2);
         Car fetchCar3 = parkingLot1.getParkingRoom().get(carTicket3);
+        Car fetchCar4 = parkingLot2.getParkingRoom().get(carTicket4);
 
         //then
         assertNotNull(fetchCar1);
         assertNotNull(fetchCar2);
         assertNotNull(fetchCar3);
+        assertNotNull(fetchCar4);
     }
 
 }
