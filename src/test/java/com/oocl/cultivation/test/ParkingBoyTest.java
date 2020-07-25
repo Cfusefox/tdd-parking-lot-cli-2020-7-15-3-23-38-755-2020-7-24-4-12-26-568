@@ -6,6 +6,8 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingBoyTest {
@@ -80,5 +82,25 @@ public class ParkingBoyTest {
 
         //then
         assertEquals("Please provide your parking ticket.", actual);
+    }
+
+    @Test
+    void should_return_not_enough_position_when_answer_customer_message_given_null_but_had_give_car_to_boy() {
+        //given
+        ArrayList<Car> carList = new ArrayList<>();
+        for(int index = 0; index < 11; index++) {
+            carList.add(new Car());
+        }
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+         //when
+        for(int number = 0; number < carList.size(); number++) {
+            parkingBoy.parkingCar(carList.get(number));
+        }
+        String actual = parkingBoy.answerCustomerMessage(null);
+
+        //then
+        assertEquals("Not enough position.", actual);
     }
 }
