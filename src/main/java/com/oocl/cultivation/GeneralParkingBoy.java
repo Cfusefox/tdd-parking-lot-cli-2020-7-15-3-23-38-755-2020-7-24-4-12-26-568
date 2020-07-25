@@ -26,16 +26,12 @@ public class GeneralParkingBoy implements ParkingBoy{
     }
 
     public Car fetchCar(CarTicket carTicket) {
-        if(carTicket == null) {
-            return null;
-        } else {
-            for (ParkingLot parkingLot: parkingLots) {
-                Car car = parkingLot.fetch(carTicket);
-                if(car != null) {
-                    return car;
-                }
-                this.errorMessage = parkingLot.getErrorMessage();
+        for (ParkingLot parkingLot: parkingLots) {
+            Car car = parkingLot.fetch(carTicket);
+            if(car != null) {
+                return car;
             }
+            this.errorMessage = parkingLot.getErrorMessage();
         }
         return null;
     }

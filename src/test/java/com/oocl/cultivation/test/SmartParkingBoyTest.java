@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class SmartParkingBoyTest {
 
+    //todo clean code
     @Test
     void should_return_true_when_parking_car_into_parking_lot_given_four_car() {
         //given
