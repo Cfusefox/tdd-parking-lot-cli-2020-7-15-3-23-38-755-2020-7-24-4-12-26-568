@@ -1,15 +1,20 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.ParkingCarBehavior.GeneralParkingCarBehavior;
+import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
+
 import java.util.ArrayList;
 
 public class ParkingLotManager {
 
     private ArrayList<ParkingLot> parkingLots;
     private ArrayList<ParkingBoy> parkingBoys;
+    private ParkingCarBehavior parkingCarBehavior;
 
     public ParkingLotManager(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
         this.parkingBoys = new ArrayList<>();
+        this.parkingCarBehavior = new GeneralParkingCarBehavior();
     }
 
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
@@ -24,5 +29,13 @@ public class ParkingLotManager {
     public Car letParkingBoyFetchCar(CarTicket carTicket) {
         ParkingBoy parkingBoy = this.parkingBoys.get(0);
         return parkingBoy.fetchCar(carTicket);
+    }
+
+    public CarTicket parkingCar(Car car) {
+        return null;
+    }
+
+    public Car fetchCar(CarTicket carTicket) {
+        return null;
     }
 }

@@ -50,5 +50,23 @@ public class ParkingLotManagerTest {
         assertEquals(car, fetchCar);
     }
 
+    @Test
+    void should_return_true_when_parking_lot_manager_parking_car_given_car() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
+
+        //when
+        CarTicket carTicket = parkingLotManager.parkingCar(car);
+        Car fetchCar = parkingLotManager.fetchCar(carTicket);
+
+        //given
+        assertEquals(car, fetchCar);
+
+    }
+
 
 }

@@ -27,6 +27,7 @@ public class GeneralParkingBoy implements ParkingBoy{
             this.errorMessage = "Not enough position.";
             return null;
         }
+
     }
 
     public Car fetchCar(CarTicket carTicket) {
