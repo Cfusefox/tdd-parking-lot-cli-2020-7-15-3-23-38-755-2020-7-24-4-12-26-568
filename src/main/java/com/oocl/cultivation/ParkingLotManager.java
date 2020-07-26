@@ -13,14 +13,16 @@ public class ParkingLotManager {
     }
 
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
-        return true;
+        return this.parkingBoys.add(parkingBoy);
     }
 
     public CarTicket letParkingBoyParkingCar(Car car) {
-        return null;
+        ParkingBoy parkingBoy = this.parkingBoys.get(0);
+        return parkingBoy.parkingCar(car);
     }
 
     public Car letParkingBoyFetchCar(CarTicket carTicket) {
-        return null;
+        ParkingBoy parkingBoy = this.parkingBoys.get(0);
+        return parkingBoy.fetchCar(carTicket);
     }
 }

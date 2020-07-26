@@ -42,7 +42,7 @@ public class ParkingLotManagerTest {
         ParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
-        boolean actual1 = parkingLotManager.addParkingBoy(generalParkingBoy);
+        parkingLotManager.addParkingBoy(generalParkingBoy);
         CarTicket carTicket = parkingLotManager.letParkingBoyParkingCar(car);
         Car fetchCar = parkingLotManager.letParkingBoyFetchCar(carTicket);
 
