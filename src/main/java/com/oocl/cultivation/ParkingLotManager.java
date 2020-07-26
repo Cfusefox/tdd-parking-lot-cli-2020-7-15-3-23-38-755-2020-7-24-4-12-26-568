@@ -46,6 +46,6 @@ public class ParkingLotManager {
     }
 
     public String answerCustomerMessage() {
-        return null;
+        return parkingBoys.get(0).answerCustomerMessage(null);
     }
 }

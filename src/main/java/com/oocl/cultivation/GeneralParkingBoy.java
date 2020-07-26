@@ -12,9 +12,7 @@ public class GeneralParkingBoy implements ParkingBoy{
     private String errorMessage;
     private ParkingCarBehavior parkingCarBehavior;
 
-    public String getErrorMessage() {
-        return errorMessage;
-    }
+
 
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {
         this.parkingLots = parkingLotList;
