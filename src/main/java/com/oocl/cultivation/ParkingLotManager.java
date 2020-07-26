@@ -32,10 +32,16 @@ public class ParkingLotManager {
     }
 
     public CarTicket parkingCar(Car car) {
-        return null;
+        return this.parkingCarBehavior.parkingCar(car, this.parkingLots);
     }
 
     public Car fetchCar(CarTicket carTicket) {
+        for (ParkingLot parkingLot: parkingLots) {
+            Car car = parkingLot.fetch(carTicket);
+            if(car != null) {
+                return car;
+            }
+        }
         return null;
     }
 }
