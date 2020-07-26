@@ -13,7 +13,6 @@ public class GeneralParkingBoy implements ParkingBoy{
     private ParkingCarBehavior parkingCarBehavior;
 
 
-
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {
         this.parkingLots = parkingLotList;
         this.errorMessage = null;
@@ -29,7 +28,6 @@ public class GeneralParkingBoy implements ParkingBoy{
             this.errorMessage = "Not enough position.";
             return null;
         }
-
     }
 
     public Car fetchCar(CarTicket carTicket) {
