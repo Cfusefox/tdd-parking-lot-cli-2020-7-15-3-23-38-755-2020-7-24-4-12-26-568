@@ -13,6 +13,6 @@ public class ParkingLotManager {
     }
 
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
-        return false;
+        return true;
     }
 }
