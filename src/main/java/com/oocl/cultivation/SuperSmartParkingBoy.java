@@ -1,31 +1,32 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
+import com.oocl.cultivation.ParkingCarBehavior.SuperSmartParkingCarBehavior;
+
 import java.util.ArrayList;
 
 public class SuperSmartParkingBoy implements ParkingBoy{
 
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
+    private ParkingCarBehavior parkingCarBehavior;
 
     public SuperSmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
         this.errorMessage = null;
+        this.parkingCarBehavior = new SuperSmartParkingCarBehavior();
     }
 
     @Override
     public CarTicket parkingCar(Car car) {
         this.errorMessage = null;
-        float maxPercentage = maxPercentageOfUseableVolume(parkingLots);
-        for (ParkingLot parkingLot: parkingLots) {
-            if((parkingLot.getVolume() - parkingLot.getParkingRoom().size()) / (float) parkingLot.getVolume()  == maxPercentage) {
-                CarTicket carTicket = parkingLot.park(car);
-                if(carTicket != null) {
-                    return carTicket;
-                }
-                this.errorMessage = parkingLot.getErrorMessage();
-            }
+        CarTicket carTicket = parkingCarBehavior.parkingCar(car, parkingLots);
+        if(carTicket != null) {
+            return carTicket;
+        } else {
+            this.errorMessage = "Not enough position.";
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -49,14 +50,4 @@ public class SuperSmartParkingBoy implements ParkingBoy{
         }
     }
 
-    private float maxPercentageOfUseableVolume(ArrayList<ParkingLot> parkingLots) {
-        float max = 0;
-        for (ParkingLot parkingLot: parkingLots) {
-            int nullVolume = parkingLot.getVolume() - parkingLot.getParkingRoom().size();
-            if(max < nullVolume / (float) parkingLot.getVolume()) {
-                max = nullVolume / (float) parkingLot.getVolume();
-            }
-        }
-        return max;
-    }
 }

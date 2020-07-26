@@ -1,31 +1,32 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
+import com.oocl.cultivation.ParkingCarBehavior.SmartParkingCarBehavior;
+
 import java.util.ArrayList;
 
 public class SmartParkingBoy implements ParkingBoy{
 
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
+    private ParkingCarBehavior parkingCarBehavior;
 
     public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
         this.errorMessage = null;
+        this.parkingCarBehavior = new SmartParkingCarBehavior();
     }
 
     @Override
     public CarTicket parkingCar(Car car) {
         this.errorMessage = null;
-        int maxNullVolume = maxVolumeNumber(parkingLots);
-        for (ParkingLot parkingLot: parkingLots) {
-            if(parkingLot.getVolume() - parkingLot.getParkingRoom().size() == maxNullVolume) {
-                CarTicket carTicket = parkingLot.park(car);
-                if(carTicket != null) {
-                    return carTicket;
-                }
-                this.errorMessage = parkingLot.getErrorMessage();
-            }
+        CarTicket carTicket = parkingCarBehavior.parkingCar(car, parkingLots);
+        if(carTicket != null) {
+            return carTicket;
+        } else {
+            this.errorMessage = "Not enough position.";
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -49,15 +50,6 @@ public class SmartParkingBoy implements ParkingBoy{
         }
     }
 
-    private int maxVolumeNumber(ArrayList<ParkingLot> parkingLots) {
-        int max = 0;
-        for (ParkingLot parkingLot: parkingLots) {
-            int nullVolume = parkingLot.getVolume() - parkingLot.getParkingRoom().size();
-            if(max < nullVolume) {
-                max = nullVolume;
-            }
-        }
-        return max;
-    }
+
 
 }

@@ -1,5 +1,8 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.ParkingCarBehavior.GeneralParkingCarBehavior;
+import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
+
 import java.util.ArrayList;
 
 public class GeneralParkingBoy implements ParkingBoy{
@@ -7,22 +10,23 @@ public class GeneralParkingBoy implements ParkingBoy{
 
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
+    private ParkingCarBehavior parkingCarBehavior;
 
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {
         this.parkingLots = parkingLotList;
         this.errorMessage = null;
+        this.parkingCarBehavior = new GeneralParkingCarBehavior();
     }
 
     public CarTicket parkingCar(Car car) {
         this.errorMessage = null;
-        for (ParkingLot parkingLot: parkingLots) {
-            CarTicket carTicket = parkingLot.park(car);
-            if(carTicket != null) {
-                return carTicket;
-            }
-            this.errorMessage = parkingLot.getErrorMessage();
+        CarTicket carTicket = this.parkingCarBehavior.parkingCar(car, this.parkingLots);
+        if(carTicket != null) {
+            return carTicket;
+        } else {
+            this.errorMessage = "Not enough position.";
+            return null;
         }
-        return null;
     }
 
     public Car fetchCar(CarTicket carTicket) {
