@@ -16,7 +16,7 @@ public class ParkingLotManager {
         this.parkingBoys = new ArrayList<>();
         this.parkingCarBehavior = new GeneralParkingCarBehavior();
     }
-
+    //todo reflect on modify public to private
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
         return this.parkingBoys.add(parkingBoy);
     }
@@ -42,6 +42,10 @@ public class ParkingLotManager {
                 return car;
             }
         }
+        return null;
+    }
+
+    public String answerCustomerMessage() {
         return null;
     }
 }

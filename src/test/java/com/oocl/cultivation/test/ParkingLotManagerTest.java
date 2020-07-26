@@ -68,5 +68,28 @@ public class ParkingLotManagerTest {
 
     }
 
+    @Test
+    void should_return_error_message_when_answer_customer_message_given_ticket() {
+        //given
+        ArrayList<Car> carList = new ArrayList<>();
+        for(int index = 0; index < 11; index++) {
+            carList.add(new Car());
+        }
+        ParkingLot parkingLot = new ParkingLot();
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
+        GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
+        parkingLotManager.addParkingBoy(generalParkingBoy);
+
+        //when
+        for(int number = 0; number < 11; number++) {
+            parkingLotManager.letParkingBoyParkingCar(carList.get(number));
+        }
+        String actual = parkingLotManager.answerCustomerMessage();
+
+        //given
+        assertEquals("Not enough position.", actual);
+    }
 
 }
