@@ -15,4 +15,12 @@ public class ParkingLotManager {
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
         return true;
     }
+
+    public CarTicket letParkingBoyParkingCar(Car car) {
+        return null;
+    }
+
+    public Car letParkingBoyFetchCar(CarTicket carTicket) {
+        return null;
+    }
 }

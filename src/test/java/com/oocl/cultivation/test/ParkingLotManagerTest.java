@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -28,6 +29,25 @@ public class ParkingLotManagerTest {
         assertTrue(actual1);
         assertTrue(actual2);
         assertTrue(actual3);
+    }
+
+    @Test
+    void should_return_true_when_let_parking_boy_parking_car_given_car() {
+        //given
+        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
+        Car car = new Car();
+        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
+        ParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
+
+        //when
+        boolean actual1 = parkingLotManager.addParkingBoy(generalParkingBoy);
+        CarTicket carTicket = parkingLotManager.letParkingBoyParkingCar(car);
+        Car fetchCar = parkingLotManager.letParkingBoyFetchCar(carTicket);
+
+        //given
+        assertEquals(car, fetchCar);
     }
 
 
