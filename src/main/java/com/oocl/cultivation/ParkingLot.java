@@ -20,8 +20,8 @@ public class ParkingLot implements ParkingCarBehavior {
         this.errorMessage = "";
     }
 
-    public int getAvailableLocations() {
-        return this.volume - this.parkingRoom.size();
+    public boolean getAvailableLocations() {
+        return this.volume - this.parkingRoom.size() > 0;
     }
 
     public String getErrorMessage() {
@@ -35,7 +35,7 @@ public class ParkingLot implements ParkingCarBehavior {
     @Override
     public CarTicket parkingCar(Car car) {
         if (parkingRoom.size() >= this.volume) {
-            this.errorMessage += "Not enough position.";
+            this.errorMessage = "Not enough position.";
             return null;
         }
         CarTicket carTicket = new CarTicket(car);
@@ -49,7 +49,7 @@ public class ParkingLot implements ParkingCarBehavior {
 
     public Car fetchCar(CarTicket carTicket) {
         if (this.parkingRoom.get(carTicket) == null) {
-            this.errorMessage += "Unrecognized parking ticket.";
+            this.errorMessage = "Unrecognized parking ticket.";
         }
         return this.parkingRoom.remove(carTicket);
     }

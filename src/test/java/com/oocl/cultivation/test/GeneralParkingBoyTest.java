@@ -114,8 +114,8 @@ public class GeneralParkingBoyTest {
         GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
          //when
-        for(int number = 0; number < carList.size(); number++) {
-            parkingBoy.parkingCar(carList.get(number));
+        for (Car car : carList) {
+            parkingBoy.parkingCar(car);
         }
         String actual = parkingBoy.answerCustomerMessage(null);
 
