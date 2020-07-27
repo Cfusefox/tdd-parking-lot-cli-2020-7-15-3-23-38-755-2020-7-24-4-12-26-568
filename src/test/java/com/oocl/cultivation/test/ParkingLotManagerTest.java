@@ -56,8 +56,8 @@ public class ParkingLotManagerTest {
         ParkingLot parkingLot = new ParkingLot();
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingLotManager parkingLotManager = new ParkingLotManager();
         GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(generalParkingBoy);
 
         //when
         for (int number = 0; number < 11; number++) {
