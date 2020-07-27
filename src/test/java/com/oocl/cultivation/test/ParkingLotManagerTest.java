@@ -17,7 +17,7 @@ public class ParkingLotManagerTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
         ParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
-        ParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        ParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots, parkingLots);
         ParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
 
         //when

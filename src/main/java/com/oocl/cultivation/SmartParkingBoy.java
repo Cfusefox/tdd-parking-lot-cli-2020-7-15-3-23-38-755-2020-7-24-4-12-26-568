@@ -3,50 +3,41 @@ package com.oocl.cultivation;
 
 import java.util.ArrayList;
 
-public class SmartParkingBoy implements ParkingBoy{
-
+public class SmartParkingBoy extends GeneralParkingBoy {
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
-    private ParkingCarBehavior parkingCarBehavior;
+
 
     public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
+        super(parkingLots);
         this.parkingLots = parkingLots;
-        this.errorMessage = null;
+        this.errorMessage = "";
     }
 
     @Override
     public CarTicket parkingCar(Car car) {
-        this.errorMessage = null;
-        CarTicket carTicket = parkingCarBehavior.parkingCar(car, parkingLots);
-        if(carTicket != null) {
-            return carTicket;
-        } else {
-            this.errorMessage = "Not enough position.";
-            return null;
-        }
-    }
-
-    @Override
-    public Car fetchCar(CarTicket carTicket) {
-        for (ParkingLot parkingLot: parkingLots) {
-            Car car = parkingLot.fetch(carTicket);
-            if(car != null) {
-                return car;
+        this.errorMessage = "";
+        int maxNullVolume = maxVolumeNumber(parkingLots);
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.getVolume() - parkingLot.getParkingRoom().size() == maxNullVolume) {
+                CarTicket carTicket = parkingLot.park(car);
+                if (carTicket != null) {
+                    return carTicket;
+                }
             }
-            this.errorMessage = parkingLot.getErrorMessage();
         }
+        this.errorMessage = "Not enough position.";
         return null;
     }
 
-    @Override
-    public String answerCustomerMessage(CarTicket carTicket) {
-        if(this.errorMessage != null) {
-            return this.errorMessage;
-        } else {
-            return "Please provide your parking ticket.";
+    private int maxVolumeNumber(ArrayList<ParkingLot> parkingLots) {
+        int max = 0;
+        for (ParkingLot parkingLot : parkingLots) {
+            int nullVolume = parkingLot.getVolume() - parkingLot.getParkingRoom().size();
+            if (max < nullVolume) {
+                max = nullVolume;
+            }
         }
+        return max;
     }
-
-
-
 }
