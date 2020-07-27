@@ -41,4 +41,13 @@ public class SuperSmartParkingBoy extends SmartParkingBoy {
         return max;
     }
 
+    @Override
+    public String answerCustomerMessage(CarTicket carTicket) {
+        if (!this.errorMessage.equals("")) {
+            return this.errorMessage;
+        } else {
+            return "Please provide your parking ticket.";
+        }
+    }
+
 }
