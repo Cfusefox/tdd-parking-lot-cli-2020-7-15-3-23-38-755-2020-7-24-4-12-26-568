@@ -4,7 +4,7 @@ import com.oocl.cultivation.ParkingCarBehavior.SuperSmartParkingCarBehavior;
 
 import java.util.ArrayList;
 
-public class SuperSmartParkingBoy implements ParkingBoy {
+public class SuperSmartParkingBoy implements ParkingCarBehavior {
 
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
