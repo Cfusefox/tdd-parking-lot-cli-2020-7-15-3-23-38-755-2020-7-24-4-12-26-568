@@ -8,6 +8,7 @@ public class ParkingLot implements ParkingCarBehavior {
     private String errorMessage;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
     private int volume;
+    private int availableLocations;
 
     public ParkingLot(int volume) {
         this.volume = volume;
@@ -17,6 +18,10 @@ public class ParkingLot implements ParkingCarBehavior {
     public ParkingLot() {
         this.volume = 10;
         this.errorMessage = "";
+    }
+
+    public int getAvailableLocations() {
+        return this.volume - this.parkingRoom.size();
     }
 
     public String getErrorMessage() {
