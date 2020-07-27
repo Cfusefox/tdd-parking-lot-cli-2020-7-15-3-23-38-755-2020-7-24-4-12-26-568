@@ -12,26 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ParkingLotManagerTest {
 
     @Test
-    void should_return_true_when_add_parking_boy_to_manage_list_given_parking_boy() {
-        //given
-        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLotManager parkingLotManager = new ParkingLotManager();
-        GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
-        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
-
-        //when
-        boolean actual1 = parkingLotManager.addParkingBoy(generalParkingBoy);
-        boolean actual2 = parkingLotManager.addParkingBoy(smartParkingBoy);
-        boolean actual3 = parkingLotManager.addParkingBoy(superSmartParkingBoy);
-
-        //given
-        assertTrue(actual1);
-        assertTrue(actual2);
-        assertTrue(actual3);
-    }
-
-    @Test
     void should_return_true_when_parking_car_given_car() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
