@@ -1,14 +1,10 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.ParkingCarBehavior.GeneralParkingCarBehavior;
 
 import java.util.ArrayList;
 
 public class ParkingLotManager {
 
-    private ArrayList<ParkingLot> parkingLots;
-    private ArrayList<ParkingBoy> parkingBoys;
-    private ParkingCarBehavior parkingCarBehavior;
 
     public ParkingLotManager(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
@@ -16,7 +12,6 @@ public class ParkingLotManager {
         this.parkingCarBehavior = new GeneralParkingCarBehavior();
     }
 
-    //todo reflect on modify public to private
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
         return this.parkingBoys.add(parkingBoy);
     }
