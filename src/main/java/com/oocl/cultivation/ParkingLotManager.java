@@ -15,6 +15,7 @@ public class ParkingLotManager {
         this.parkingBoys = new ArrayList<>();
         this.parkingCarBehavior = new GeneralParkingCarBehavior();
     }
+
     //todo reflect on modify public to private
     public boolean addParkingBoy(ParkingBoy parkingBoy) {
         return this.parkingBoys.add(parkingBoy);
@@ -35,9 +36,9 @@ public class ParkingLotManager {
     }
 
     public Car fetchCar(CarTicket carTicket) {
-        for (ParkingLot parkingLot: parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
             Car car = parkingLot.fetch(carTicket);
-            if(car != null) {
+            if (car != null) {
                 return car;
             }
         }

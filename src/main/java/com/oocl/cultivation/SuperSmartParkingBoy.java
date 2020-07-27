@@ -4,7 +4,7 @@ import com.oocl.cultivation.ParkingCarBehavior.SuperSmartParkingCarBehavior;
 
 import java.util.ArrayList;
 
-public class SuperSmartParkingBoy implements ParkingBoy{
+public class SuperSmartParkingBoy implements ParkingBoy {
 
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
@@ -20,7 +20,7 @@ public class SuperSmartParkingBoy implements ParkingBoy{
     public CarTicket parkingCar(Car car) {
         this.errorMessage = null;
         CarTicket carTicket = parkingCarBehavior.parkingCar(car, parkingLots);
-        if(carTicket != null) {
+        if (carTicket != null) {
             return carTicket;
         } else {
             this.errorMessage = "Not enough position.";
@@ -30,9 +30,9 @@ public class SuperSmartParkingBoy implements ParkingBoy{
 
     @Override
     public Car fetchCar(CarTicket carTicket) {
-        for (ParkingLot parkingLot: parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
             Car car = parkingLot.fetch(carTicket);
-            if(car != null) {
+            if (car != null) {
                 return car;
             }
             this.errorMessage = parkingLot.getErrorMessage();
@@ -42,7 +42,7 @@ public class SuperSmartParkingBoy implements ParkingBoy{
 
     @Override
     public String answerCustomerMessage(CarTicket carTicket) {
-        if(this.errorMessage != null) {
+        if (this.errorMessage != null) {
             return this.errorMessage;
         } else {
             return "Please provide your parking ticket.";
