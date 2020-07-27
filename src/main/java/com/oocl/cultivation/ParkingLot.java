@@ -43,7 +43,7 @@ public class ParkingLot implements ParkingCarBehavior{
         return parkingRoom;
     }
 
-    public Car fetch(CarTicket carTicket) {
+    public Car fetchCar(CarTicket carTicket) {
         this.errorMessage = "";
         if(this.parkingRoom.get(carTicket) == null) {
             this.errorMessage += "Unrecognized parking ticket.";

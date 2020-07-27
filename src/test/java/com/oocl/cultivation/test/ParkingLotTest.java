@@ -32,7 +32,7 @@ public class ParkingLotTest {
         CarTicket carTicket = parkingLot.parkingCar(car);
 
         //when
-        Car fetchCar = parkingLot.fetch(carTicket);
+        Car fetchCar = parkingLot.fetchCar(carTicket);
 
         //then
         assertNotNull(fetchCar);
@@ -51,8 +51,8 @@ public class ParkingLotTest {
 
 
         //when
-        Car fetchCarOne = parkingLot.fetch(carOneTicket);
-        Car fetchCarTwo = parkingLot.fetch(carTwoTicket);
+        Car fetchCarOne = parkingLot.fetchCar(carOneTicket);
+        Car fetchCarTwo = parkingLot.fetchCar(carTwoTicket);
 
         //given
         assertNotEquals(fetchCarOne, fetchCarTwo);
@@ -66,7 +66,7 @@ public class ParkingLotTest {
         CarTicket wrongTicket = new CarTicket(car);
 
         //when
-        Car fetchCar = parkingLot.fetch(wrongTicket);
+        Car fetchCar = parkingLot.fetchCar(wrongTicket);
 
         //given
         assertNull(fetchCar);
@@ -81,8 +81,8 @@ public class ParkingLotTest {
         CarTicket carTicket = parkingLot.parkingCar(car);
 
         //when
-        Car fetchCar = parkingLot.fetch(carTicket);
-        Car secondFetchCar = parkingLot.fetch(carTicket);
+        Car fetchCar = parkingLot.fetchCar(carTicket);
+        Car secondFetchCar = parkingLot.fetchCar(carTicket);
 
         //given
         assertEquals(car, fetchCar);
