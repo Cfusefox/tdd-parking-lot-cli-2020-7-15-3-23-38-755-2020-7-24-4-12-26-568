@@ -11,10 +11,12 @@ public class ParkingLot {
 
     public ParkingLot(int volume) {
         this.volume = volume;
+        this.errorMessage = "";
     }
 
     public ParkingLot() {
         this.volume = 10;
+        this.errorMessage = "";
     }
 
     public String getErrorMessage() {
@@ -29,7 +31,7 @@ public class ParkingLot {
         if(parkingRoom.size() >= this.volume) {
             return null;
         }
-        this.errorMessage = null;
+        this.errorMessage = "";
         CarTicket carTicket = new CarTicket(car);
         this.parkingRoom.put(carTicket, car);
         return carTicket;
@@ -40,9 +42,9 @@ public class ParkingLot {
     }
 
     public Car fetch(CarTicket carTicket) {
-        this.errorMessage = null;
+        this.errorMessage = "";
         if(this.parkingRoom.get(carTicket) == null) {
-            this.errorMessage = "Unrecognized parking ticket.";
+            this.errorMessage += "Unrecognized parking ticket.";
         }
         return this.parkingRoom.remove(carTicket);
     }
