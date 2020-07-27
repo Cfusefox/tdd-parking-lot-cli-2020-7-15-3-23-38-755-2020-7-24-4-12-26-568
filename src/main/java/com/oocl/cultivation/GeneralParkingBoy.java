@@ -12,11 +12,11 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
 
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {
         this.parkingLots = parkingLotList;
-        this.errorMessage = null;
+        this.errorMessage = "";
     }
 
     public CarTicket parkingCar(Car car) {
-        this.errorMessage = null;
+        this.errorMessage = "";
         for (ParkingLot parkingLot : parkingLots) {
             CarTicket carTicket = parkingLot.park(car);
             if (carTicket != null) {
@@ -39,7 +39,7 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
     }
 
     public String answerCustomerMessage(CarTicket carTicket) {
-        if (this.errorMessage != null) {
+        if (!this.errorMessage.equals("")) {
             return this.errorMessage;
         } else {
             return "Please provide your parking ticket.";
