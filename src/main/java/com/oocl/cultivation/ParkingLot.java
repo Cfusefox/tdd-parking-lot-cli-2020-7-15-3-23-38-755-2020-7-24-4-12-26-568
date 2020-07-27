@@ -29,6 +29,7 @@ public class ParkingLot {
 
     public CarTicket park(Car car) {
         if(parkingRoom.size() >= this.volume) {
+            this.errorMessage = "";
             return null;
         }
         this.errorMessage = "";

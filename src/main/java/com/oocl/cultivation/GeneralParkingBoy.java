@@ -16,7 +16,6 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
     }
 
     public CarTicket parkingCar(Car car) {
-        this.errorMessage = "";
         for (ParkingLot parkingLot : parkingLots) {
             CarTicket carTicket = parkingLot.park(car);
             if (carTicket != null) {
