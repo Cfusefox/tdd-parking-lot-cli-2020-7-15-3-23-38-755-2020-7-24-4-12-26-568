@@ -13,7 +13,6 @@ public class SuperSmartParkingBoy extends SmartParkingBoy {
 
     @Override
     public CarTicket parkingCar(Car car) {
-        this.errorMessage = "";
         float maxPercentage = maxPercentageOfUseableVolume(parkingLots);
         for (ParkingLot parkingLot : parkingLots) {
             if ((parkingLot.getVolume() - parkingLot.getParkingRoom().size()) / (float) parkingLot.getVolume() == maxPercentage) {

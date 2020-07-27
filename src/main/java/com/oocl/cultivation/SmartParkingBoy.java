@@ -13,7 +13,6 @@ public class SmartParkingBoy extends GeneralParkingBoy {
 
     @Override
     public CarTicket parkingCar(Car car) {
-        this.errorMessage = "";
         int maxNullVolume = maxVolumeNumber(parkingLots);
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getVolume() - parkingLot.getParkingRoom().size() == maxNullVolume) {
@@ -23,7 +22,7 @@ public class SmartParkingBoy extends GeneralParkingBoy {
                 }
             }
         }
-        this.errorMessage += "Not enough position.";
+        this.errorMessage = "Not enough position.";
         return null;
     }
 
