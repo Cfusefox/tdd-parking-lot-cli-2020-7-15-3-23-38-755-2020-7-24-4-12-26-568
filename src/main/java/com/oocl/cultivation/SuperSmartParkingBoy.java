@@ -5,12 +5,10 @@ import java.util.ArrayList;
 
 public class SuperSmartParkingBoy extends SmartParkingBoy {
 
-    private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
 
     public SuperSmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         super(parkingLots);
-        this.parkingLots = parkingLots;
         this.errorMessage = "";
     }
 
@@ -30,6 +28,18 @@ public class SuperSmartParkingBoy extends SmartParkingBoy {
         return null;
     }
 
+    @Override
+    public Car fetchCar(CarTicket carTicket) {
+        for (ParkingLot parkingLot : parkingLots) {
+            Car car = parkingLot.fetch(carTicket);
+            if (car != null) {
+                return car;
+            }
+            this.errorMessage = "Unrecognized parking ticket.";
+        }
+        return null;
+    }
+
     private float maxPercentageOfUseableVolume(ArrayList<ParkingLot> parkingLots) {
         float max = 0;
         for (ParkingLot parkingLot : parkingLots) {
@@ -41,7 +51,6 @@ public class SuperSmartParkingBoy extends SmartParkingBoy {
         return max;
     }
 
-    @Override
     public String answerCustomerMessage(CarTicket carTicket) {
         if (!this.errorMessage.equals("")) {
             return this.errorMessage;

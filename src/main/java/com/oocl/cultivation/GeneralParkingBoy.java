@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class GeneralParkingBoy implements ParkingCarBehavior {
 
 
-    private final ArrayList<ParkingLot> parkingLots;
+    protected final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
 
 
@@ -32,7 +32,7 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
             if (car != null) {
                 return car;
             }
-            this.errorMessage = parkingLot.getErrorMessage();
+            this.errorMessage = "Unrecognized parking ticket.";
         }
         return null;
     }
