@@ -32,17 +32,20 @@ public class ParkingLotManagerTest {
     }
 
     @Test
-    void should_return_true_when_let_parking_boy_parking_car_given_car() {
+    void should_return_true_when_parking_car_given_car() {
         //given
+        ArrayList<ParkingCarBehavior> parkingAbles = new ArrayList<>();
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
         Car car = new Car();
-        ParkingLotManager parkingLotManager = new ParkingLotManager();
         GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
+        parkingAbles.add(generalParkingBoy);
+        parkingAbles.add(parkingLot);
+        ParkingLotManager parkingLotManager = new ParkingLotManager();
+
 
         //when
-        parkingLotManager.addParkingBoy(generalParkingBoy);
         CarTicket carTicket = parkingLotManager.parkingCar(car);
         Car fetchCar = parkingLotManager.fetchCar(carTicket);
 
