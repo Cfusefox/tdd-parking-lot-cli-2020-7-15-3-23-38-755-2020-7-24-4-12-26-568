@@ -31,7 +31,7 @@ public class SmartParkingBoy extends GeneralParkingBoy {
     @Override
     public Car fetchCar(CarTicket carTicket) {
         for (ParkingLot parkingLot : parkingLots) {
-            Car car = parkingLot.fetch(carTicket);
+            Car car = parkingLot.fetchCar(carTicket);
             if (car != null) {
                 return car;
             }
