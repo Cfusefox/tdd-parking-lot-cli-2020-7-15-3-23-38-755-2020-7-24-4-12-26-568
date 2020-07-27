@@ -21,6 +21,10 @@ public class ParkingLotManager {
     }
 
     public String answerCustomerMessage(CarTicket carTicket) {
-        return null;
+        if(carTicket == null) {
+            return "Not enough position.";
+        } else {
+            return "Unrecognized parking ticket.";
+        }
     }
 }
