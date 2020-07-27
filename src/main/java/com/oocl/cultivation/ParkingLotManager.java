@@ -12,18 +12,12 @@ public class ParkingLotManager {
         this.parkingAbles = Arrays.asList(parkingAbles);
     }
 
-    public boolean addParkingBoy(ParkingCarBehavior parkingBoy) {
-        return this.parkingAbles.add(parkingBoy);
-    }
-
-
-
     public CarTicket parkingCar(Car car) {
         return this.parkingAbles.get(0).parkingCar(car);
     }
 
     public Car fetchCar(CarTicket carTicket) {
-        return null;
+        return this.parkingAbles.get(0).fetchCar(carTicket);
     }
 
     public String answerCustomerMessage(CarTicket carTicket) {
