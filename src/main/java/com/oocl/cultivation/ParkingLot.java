@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class ParkingLot {
+public class ParkingLot implements ParkingCarBehavior{
 
     private String errorMessage;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
@@ -27,7 +27,8 @@ public class ParkingLot {
         return volume;
     }
 
-    public CarTicket park(Car car) {
+    @Override
+    public CarTicket parkingCar(Car car) {
         if(parkingRoom.size() >= this.volume) {
             this.errorMessage += "Not enough position.";
             return null;

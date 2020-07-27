@@ -18,7 +18,7 @@ public class SuperSmartParkingBoy extends SmartParkingBoy {
         float maxPercentage = maxPercentageOfUseableVolume(parkingLots);
         for (ParkingLot parkingLot : parkingLots) {
             if ((parkingLot.getVolume() - parkingLot.getParkingRoom().size()) / (float) parkingLot.getVolume() == maxPercentage) {
-                CarTicket carTicket = parkingLot.park(car);
+                CarTicket carTicket = parkingLot.parkingCar(car);
                 if (carTicket != null) {
                     return carTicket;
                 }

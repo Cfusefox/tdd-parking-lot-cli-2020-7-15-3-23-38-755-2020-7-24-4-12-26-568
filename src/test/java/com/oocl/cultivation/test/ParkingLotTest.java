@@ -18,7 +18,7 @@ public class ParkingLotTest {
         Car car = new Car();
 
         //when
-        CarTicket carTicket = parkingLot.park(car);
+        CarTicket carTicket = parkingLot.parkingCar(car);
 
         //then
         assertNotNull(carTicket);
@@ -29,7 +29,7 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        CarTicket carTicket = parkingLot.park(car);
+        CarTicket carTicket = parkingLot.parkingCar(car);
 
         //when
         Car fetchCar = parkingLot.fetch(carTicket);
@@ -46,8 +46,8 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         Car carOne = new Car();
         Car carTwo = new Car();
-        CarTicket carOneTicket = parkingLot.park(carOne);
-        CarTicket carTwoTicket = parkingLot.park(carTwo);
+        CarTicket carOneTicket = parkingLot.parkingCar(carOne);
+        CarTicket carTwoTicket = parkingLot.parkingCar(carTwo);
 
 
         //when
@@ -78,7 +78,7 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        CarTicket carTicket = parkingLot.park(car);
+        CarTicket carTicket = parkingLot.parkingCar(car);
 
         //when
         Car fetchCar = parkingLot.fetch(carTicket);
@@ -98,11 +98,11 @@ public class ParkingLotTest {
         }
         ParkingLot parkingLot = new ParkingLot();
         for(int number = 0; number < 10; number++) {
-            parkingLot.park(carList.get(number));
+            parkingLot.parkingCar(carList.get(number));
         }
 
         //when
-        CarTicket carTicket = parkingLot.park(carList.get(10));
+        CarTicket carTicket = parkingLot.parkingCar(carList.get(10));
 
         //then
         assertNull(carTicket);

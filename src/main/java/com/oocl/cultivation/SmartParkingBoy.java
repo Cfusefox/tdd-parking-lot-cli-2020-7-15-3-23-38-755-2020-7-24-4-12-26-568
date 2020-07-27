@@ -18,7 +18,7 @@ public class SmartParkingBoy extends GeneralParkingBoy {
         int maxNullVolume = maxVolumeNumber(parkingLots);
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getVolume() - parkingLot.getParkingRoom().size() == maxNullVolume) {
-                CarTicket carTicket = parkingLot.park(car);
+                CarTicket carTicket = parkingLot.parkingCar(car);
                 if (carTicket != null) {
                     return carTicket;
                 }
