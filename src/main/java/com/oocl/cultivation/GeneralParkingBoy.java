@@ -1,38 +1,36 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.ParkingCarBehavior.GeneralParkingCarBehavior;
 
 import java.util.ArrayList;
 
-public class GeneralParkingBoy implements ParkingBoy{
+public class GeneralParkingBoy implements ParkingCarBehavior {
 
 
     private final ArrayList<ParkingLot> parkingLots;
     private String errorMessage;
-    private ParkingCarBehavior parkingCarBehavior;
 
 
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {
         this.parkingLots = parkingLotList;
         this.errorMessage = null;
-        this.parkingCarBehavior = new GeneralParkingCarBehavior();
     }
 
     public CarTicket parkingCar(Car car) {
         this.errorMessage = null;
-        CarTicket carTicket = this.parkingCarBehavior.parkingCar(car, this.parkingLots);
-        if(carTicket != null) {
-            return carTicket;
-        } else {
-            this.errorMessage = "Not enough position.";
-            return null;
+        for (ParkingLot parkingLot : parkingLots) {
+            CarTicket carTicket = parkingLot.park(car);
+            if (carTicket != null) {
+                return carTicket;
+            }
         }
+        this.errorMessage = "Not enough position.";
+        return null;
     }
 
     public Car fetchCar(CarTicket carTicket) {
-        for (ParkingLot parkingLot: parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
             Car car = parkingLot.fetch(carTicket);
-            if(car != null) {
+            if (car != null) {
                 return car;
             }
             this.errorMessage = parkingLot.getErrorMessage();
@@ -41,7 +39,7 @@ public class GeneralParkingBoy implements ParkingBoy{
     }
 
     public String answerCustomerMessage(CarTicket carTicket) {
-        if(this.errorMessage != null) {
+        if (this.errorMessage != null) {
             return this.errorMessage;
         } else {
             return "Please provide your parking ticket.";
