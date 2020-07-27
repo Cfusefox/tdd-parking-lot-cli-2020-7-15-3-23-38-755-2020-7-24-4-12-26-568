@@ -33,7 +33,6 @@ public class ParkingLot implements ParkingCarBehavior {
             this.errorMessage += "Not enough position.";
             return null;
         }
-        this.errorMessage = "";
         CarTicket carTicket = new CarTicket(car);
         this.parkingRoom.put(carTicket, car);
         return carTicket;
@@ -44,7 +43,6 @@ public class ParkingLot implements ParkingCarBehavior {
     }
 
     public Car fetchCar(CarTicket carTicket) {
-        this.errorMessage = "";
         if (this.parkingRoom.get(carTicket) == null) {
             this.errorMessage += "Unrecognized parking ticket.";
         }
