@@ -2,8 +2,6 @@ package com.oocl.cultivation;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class SmartParkingBoy extends GeneralParkingBoy {
     private String errorMessage;

@@ -1,9 +1,9 @@
 package com.oocl.cultivation;
 
-import java.util.HashMap;
+
 import java.util.LinkedHashMap;
 
-public class ParkingLot implements ParkingCarBehavior{
+public class ParkingLot implements ParkingCarBehavior {
 
     private String errorMessage;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
@@ -29,7 +29,7 @@ public class ParkingLot implements ParkingCarBehavior{
 
     @Override
     public CarTicket parkingCar(Car car) {
-        if(parkingRoom.size() >= this.volume) {
+        if (parkingRoom.size() >= this.volume) {
             this.errorMessage += "Not enough position.";
             return null;
         }
@@ -45,7 +45,7 @@ public class ParkingLot implements ParkingCarBehavior{
 
     public Car fetchCar(CarTicket carTicket) {
         this.errorMessage = "";
-        if(this.parkingRoom.get(carTicket) == null) {
+        if (this.parkingRoom.get(carTicket) == null) {
             this.errorMessage += "Unrecognized parking ticket.";
         }
         return this.parkingRoom.remove(carTicket);
