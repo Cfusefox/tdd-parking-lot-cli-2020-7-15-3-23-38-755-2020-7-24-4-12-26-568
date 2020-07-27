@@ -7,7 +7,7 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
 
 
     protected final ArrayList<ParkingLot> parkingLots;
-    private String errorMessage;
+    protected String errorMessage;
 
 
     public GeneralParkingBoy(ArrayList<ParkingLot> parkingLotList) {

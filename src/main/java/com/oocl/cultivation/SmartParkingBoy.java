@@ -4,7 +4,6 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 
 public class SmartParkingBoy extends GeneralParkingBoy {
-    private String errorMessage;
 
 
     public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
@@ -28,18 +27,6 @@ public class SmartParkingBoy extends GeneralParkingBoy {
         return null;
     }
 
-    @Override
-    public Car fetchCar(CarTicket carTicket) {
-        for (ParkingLot parkingLot : parkingLots) {
-            Car car = parkingLot.fetchCar(carTicket);
-            if (car != null) {
-                return car;
-            }
-            this.errorMessage = "Unrecognized parking ticket.";
-        }
-        return null;
-    }
-
     private int maxVolumeNumber(ArrayList<ParkingLot> parkingLots) {
         int max = 0;
         for (ParkingLot parkingLot : parkingLots) {
@@ -51,13 +38,6 @@ public class SmartParkingBoy extends GeneralParkingBoy {
         return max;
     }
 
-    @Override
-    public String answerCustomerMessage(CarTicket carTicket) {
-        if (!this.errorMessage.equals("")) {
-            return this.errorMessage;
-        } else {
-            return "Please provide your parking ticket.";
-        }
-    }
+
 
 }
