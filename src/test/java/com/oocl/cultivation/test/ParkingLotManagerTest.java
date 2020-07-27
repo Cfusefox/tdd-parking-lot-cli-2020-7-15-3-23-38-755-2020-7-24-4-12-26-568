@@ -15,10 +15,10 @@ public class ParkingLotManagerTest {
     void should_return_true_when_add_parking_boy_to_manage_list_given_parking_boy() {
         //given
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
-        ParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
-        ParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots, parkingLots);
-        ParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        ParkingLotManager parkingLotManager = new ParkingLotManager();
+        GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
 
         //when
         boolean actual1 = parkingLotManager.addParkingBoy(generalParkingBoy);
@@ -38,13 +38,13 @@ public class ParkingLotManagerTest {
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
         Car car = new Car();
-        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
-        ParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
+        ParkingLotManager parkingLotManager = new ParkingLotManager();
+        GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
         parkingLotManager.addParkingBoy(generalParkingBoy);
-        CarTicket carTicket = parkingLotManager.letParkingBoyParkingCar(car);
-        Car fetchCar = parkingLotManager.letParkingBoyFetchCar(carTicket);
+        CarTicket carTicket = parkingLotManager.parkingCar(car);
+        Car fetchCar = parkingLotManager.fetchCar(carTicket);
 
         //given
         assertEquals(car, fetchCar);
@@ -57,7 +57,7 @@ public class ParkingLotManagerTest {
         ParkingLot parkingLot = new ParkingLot();
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
+        ParkingLotManager parkingLotManager = new ParkingLotManager();
 
         //when
         CarTicket carTicket = parkingLotManager.parkingCar(car);
@@ -78,15 +78,15 @@ public class ParkingLotManagerTest {
         ParkingLot parkingLot = new ParkingLot();
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingLotManager parkingLotManager = new ParkingLotManager(parkingLots);
+        ParkingLotManager parkingLotManager = new ParkingLotManager();
         GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
         parkingLotManager.addParkingBoy(generalParkingBoy);
 
         //when
         for(int number = 0; number < 11; number++) {
-            parkingLotManager.letParkingBoyParkingCar(carList.get(number));
+            parkingLotManager.parkingCar(carList.get(number));
         }
-        String actual = parkingLotManager.answerCustomerMessage();
+        String actual = parkingLotManager.answerCustomerMessage(null);
 
         //given
         assertEquals("Not enough position.", actual);

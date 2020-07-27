@@ -26,4 +26,7 @@ public class ParkingLotManager {
         return null;
     }
 
+    public String answerCustomerMessage(CarTicket carTicket) {
+        return null;
+    }
 }
