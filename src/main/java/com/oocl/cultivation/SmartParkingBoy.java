@@ -27,14 +27,14 @@ public class SmartParkingBoy extends GeneralParkingBoy {
     }
 
     private int maxVolumeNumber(ArrayList<ParkingLot> parkingLots) {
-        int max = 0;
-        for (ParkingLot parkingLot : parkingLots) {
+        final int[] max = {0};
+        parkingLots.stream().forEach(parkingLot -> {
             int nullVolume = parkingLot.getVolume() - parkingLot.getParkingRoom().size();
-            if (max < nullVolume) {
-                max = nullVolume;
+            if (max[0] < nullVolume) {
+                max[0] = nullVolume;
             }
-        }
-        return max;
+        });
+        return max[0];
     }
 
 
