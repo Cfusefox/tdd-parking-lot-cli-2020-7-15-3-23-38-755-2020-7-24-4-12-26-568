@@ -1,7 +1,5 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
-import com.oocl.cultivation.ParkingCarBehavior.SmartParkingCarBehavior;
 
 import java.util.ArrayList;
 
@@ -14,7 +12,6 @@ public class SmartParkingBoy implements ParkingBoy{
     public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
         this.errorMessage = null;
-        this.parkingCarBehavior = new SmartParkingCarBehavior();
     }
 
     @Override

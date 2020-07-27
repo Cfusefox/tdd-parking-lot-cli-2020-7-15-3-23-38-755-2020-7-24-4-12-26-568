@@ -1,7 +1,6 @@
 package com.oocl.cultivation;
 
 import com.oocl.cultivation.ParkingCarBehavior.GeneralParkingCarBehavior;
-import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
 
 import java.util.ArrayList;
 

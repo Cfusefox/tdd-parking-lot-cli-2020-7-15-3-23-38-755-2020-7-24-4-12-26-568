@@ -1,6 +1,5 @@
 package com.oocl.cultivation;
 
-import com.oocl.cultivation.ParkingCarBehavior.ParkingCarBehavior;
 import com.oocl.cultivation.ParkingCarBehavior.SuperSmartParkingCarBehavior;
 
 import java.util.ArrayList;
