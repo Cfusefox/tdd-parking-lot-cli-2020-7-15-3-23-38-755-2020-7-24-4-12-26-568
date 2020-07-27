@@ -50,7 +50,7 @@ public class ParkingLotManagerTest {
     void should_return_error_message_when_answer_customer_message_given_ticket() {
         //given
         ArrayList<Car> carList = new ArrayList<>();
-        for(int index = 0; index < 11; index++) {
+        for (int index = 0; index < 11; index++) {
             carList.add(new Car());
         }
         ParkingLot parkingLot = new ParkingLot();
@@ -60,7 +60,7 @@ public class ParkingLotManagerTest {
         GeneralParkingBoy generalParkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
-        for(int number = 0; number < 11; number++) {
+        for (int number = 0; number < 11; number++) {
             parkingLotManager.parkingCar(carList.get(number));
         }
         String actual = parkingLotManager.answerCustomerMessage(null);
