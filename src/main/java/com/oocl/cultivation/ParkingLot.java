@@ -49,12 +49,4 @@ public class ParkingLot implements ParkingCarBehavior {
         return this.parkingRoom.remove(carTicket);
     }
 
-    public String answerCustomerMessage(CarTicket carTicket) {
-        if (!this.errorMessage.equals("")) {
-            return this.errorMessage;
-        } else {
-            return "Please provide your parking ticket.";
-        }
-    }
-
 }

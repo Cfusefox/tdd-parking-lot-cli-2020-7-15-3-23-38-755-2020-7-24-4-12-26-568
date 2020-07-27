@@ -7,24 +7,35 @@ import java.util.List;
 public class ParkingLotManager {
 
     List<ParkingCarBehavior> parkingAbles;
+    private String errorMessage;
 
     public ParkingLotManager(ParkingCarBehavior... parkingAbles) {
         this.parkingAbles = Arrays.asList(parkingAbles);
+        this.errorMessage = "";
     }
 
     public CarTicket parkingCar(Car car) {
-        return this.parkingAbles.get(0).parkingCar(car);
+        CarTicket carTicket = this.parkingAbles.get(0).parkingCar(car);
+        if(carTicket == null) {
+            this.errorMessage = "Not enough position.";
+        }
+        return carTicket;
+
     }
 
     public Car fetchCar(CarTicket carTicket) {
-        return this.parkingAbles.get(0).fetchCar(carTicket);
+        Car fetchCar = this.parkingAbles.get(0).fetchCar(carTicket);
+        if(fetchCar == null) {
+            this.errorMessage = "Unrecognized parking ticket.";
+        }
+        return fetchCar;
     }
 
     public String answerCustomerMessage(CarTicket carTicket) {
-        if(carTicket == null) {
-            return "Not enough position.";
+        if(!this.errorMessage.equals("")) {
+            return this.errorMessage;
         } else {
-            return "Unrecognized parking ticket.";
+            return "Please provide your parking ticket.";
         }
     }
 }
