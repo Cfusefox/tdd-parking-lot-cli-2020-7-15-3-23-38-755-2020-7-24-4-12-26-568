@@ -5,6 +5,9 @@ import java.util.LinkedHashMap;
 
 public class ParkingLot implements ParkingCarBehavior {
 
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+    private static final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket.";
+    private static final int DEFAULT_VOLUE = 10;
     private String errorMessage;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
     private int volume;
@@ -16,7 +19,7 @@ public class ParkingLot implements ParkingCarBehavior {
     }
 
     public ParkingLot() {
-        this.volume = 10;
+        this.volume = DEFAULT_VOLUE;
         this.errorMessage = "";
     }
 
@@ -25,21 +28,14 @@ public class ParkingLot implements ParkingCarBehavior {
     }
 
     public float getAvailablePercentage() {
-        return (this.volume - this.parkingRoom.size()) / (float)this.volume;
+        return (this.volume - this.parkingRoom.size()) / (float) this.volume;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
 
     @Override
     public CarTicket parkingCar(Car car) {
         if (parkingRoom.size() >= this.volume) {
-            this.errorMessage = "Not enough position.";
+            this.errorMessage = NOT_ENOUGH_POSITION;
             return null;
         }
         CarTicket carTicket = new CarTicket(car);
@@ -53,7 +49,7 @@ public class ParkingLot implements ParkingCarBehavior {
 
     public Car fetchCar(CarTicket carTicket) {
         if (this.parkingRoom.get(carTicket) == null) {
-            this.errorMessage = "Unrecognized parking ticket.";
+            this.errorMessage = UNRECOGNIZED_PARKING_TICKET;
         }
         return this.parkingRoom.remove(carTicket);
     }
