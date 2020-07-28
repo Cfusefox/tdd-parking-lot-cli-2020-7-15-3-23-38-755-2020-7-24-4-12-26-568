@@ -24,6 +24,10 @@ public class ParkingLot implements ParkingCarBehavior {
         return this.volume - this.parkingRoom.size();
     }
 
+    public float getAvailablePercentage() {
+        return (this.volume - this.parkingRoom.size()) / (float)this.volume;
+    }
+
     public String getErrorMessage() {
         return errorMessage;
     }
@@ -53,5 +57,6 @@ public class ParkingLot implements ParkingCarBehavior {
         }
         return this.parkingRoom.remove(carTicket);
     }
+
 
 }
