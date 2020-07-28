@@ -6,6 +6,9 @@ import java.util.List;
 
 public class ParkingLotManager {
 
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+    private static final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket.";
+    private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.";
     List<ParkingCarBehavior> parkingAbles;
     private String errorMessage;
 
@@ -17,7 +20,7 @@ public class ParkingLotManager {
     public CarTicket parkingCar(Car car) {
         CarTicket carTicket = this.parkingAbles.get(0).parkingCar(car);
         if(carTicket == null) {
-            this.errorMessage = "Not enough position.";
+            this.errorMessage = NOT_ENOUGH_POSITION;
         }
         return carTicket;
 
@@ -26,7 +29,7 @@ public class ParkingLotManager {
     public Car fetchCar(CarTicket carTicket) {
         Car fetchCar = this.parkingAbles.get(0).fetchCar(carTicket);
         if(fetchCar == null) {
-            this.errorMessage = "Unrecognized parking ticket.";
+            this.errorMessage = UNRECOGNIZED_PARKING_TICKET;
         }
         return fetchCar;
     }
@@ -35,7 +38,7 @@ public class ParkingLotManager {
         if(!this.errorMessage.equals("")) {
             return this.errorMessage;
         } else {
-            return "Please provide your parking ticket.";
+            return PLEASE_PROVIDE_YOUR_PARKING_TICKET;
         }
     }
 }
