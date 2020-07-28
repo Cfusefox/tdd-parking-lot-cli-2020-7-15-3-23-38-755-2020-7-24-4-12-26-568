@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ParkingLotManagerTest {
 
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+
     @Test
     void should_return_true_when_parking_car_given_car() {
         //given
@@ -66,7 +68,7 @@ public class ParkingLotManagerTest {
         String actual = parkingLotManager.answerCustomerMessage(null);
 
         //given
-        assertEquals("Not enough position.", actual);
+        assertEquals(NOT_ENOUGH_POSITION, actual);
     }
 
 }

@@ -9,6 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartParkingBoyTest {
 
+    private static final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket.";
+    private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.";
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+
     @Test
     void should_return_car_ticket_when_parking_car_into_paring_lot_given_car() {
         //given
@@ -76,7 +80,7 @@ public class SmartParkingBoyTest {
         String actual = parkingBoy.answerCustomerMessage(carTicket);
 
         //then
-        assertEquals("Unrecognized parking ticket.", actual);
+        assertEquals(UNRECOGNIZED_PARKING_TICKET, actual);
     }
 
     @Test
@@ -93,7 +97,7 @@ public class SmartParkingBoyTest {
         String actual = parkingBoy.answerCustomerMessage(null);
 
         //then
-        assertEquals("Please provide your parking ticket.", actual);
+        assertEquals(PLEASE_PROVIDE_YOUR_PARKING_TICKET, actual);
     }
 
     @Test
@@ -115,7 +119,7 @@ public class SmartParkingBoyTest {
         String actual = parkingBoy.answerCustomerMessage(null);
 
         //then
-        assertEquals("Not enough position.", actual);
+        assertEquals(NOT_ENOUGH_POSITION, actual);
     }
 
 
