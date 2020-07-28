@@ -7,7 +7,7 @@ public class ParkingLot implements ParkingCarBehavior {
 
     private static final int DEFAULT_VOLUME = 10;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
-    private int volume;
+    private final int volume;
 
     public ParkingLot(int volume) {
         this.volume = volume;
