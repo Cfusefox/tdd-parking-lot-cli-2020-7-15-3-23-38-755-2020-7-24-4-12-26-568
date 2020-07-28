@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class SmartParkingBoy extends GeneralParkingBoy {
 
 
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+
     public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
         super(parkingLots);
         this.errorMessage = "";
@@ -21,7 +23,7 @@ public class SmartParkingBoy extends GeneralParkingBoy {
         Optional<ParkingLot> optionalParkingLot = parkingLots.stream().max(Comparator.comparing(ParkingLot::getAvailableLocations));
         if (optionalParkingLot.isPresent()) {
             if (optionalParkingLot.get().getAvailableLocations() > 0) {
-                this.errorMessage = "Not enough position.";
+                this.errorMessage = NOT_ENOUGH_POSITION;
             }
         }
         return optionalParkingLot.map(parkingLot -> parkingLot.parkingCar(car)).orElse(null);
