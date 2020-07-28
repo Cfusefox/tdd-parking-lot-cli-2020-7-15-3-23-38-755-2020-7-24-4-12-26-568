@@ -6,6 +6,9 @@ import java.util.ArrayList;
 public class GeneralParkingBoy implements ParkingCarBehavior {
 
 
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+    private static final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket.";
+    private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.";
     protected final ArrayList<ParkingLot> parkingLots;
     protected String errorMessage;
 
@@ -22,7 +25,7 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
                 return carTicket;
             }
         }
-        this.errorMessage = "Not enough position.";
+        this.errorMessage = NOT_ENOUGH_POSITION;
         return null;
     }
 
@@ -32,7 +35,7 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
             if (car != null) {
                 return car;
             }
-            this.errorMessage = "Unrecognized parking ticket.";
+            this.errorMessage = UNRECOGNIZED_PARKING_TICKET;
         }
         return null;
     }
@@ -41,7 +44,7 @@ public class GeneralParkingBoy implements ParkingCarBehavior {
         if (!this.errorMessage.equals("")) {
             return this.errorMessage;
         } else {
-            return "Please provide your parking ticket.";
+            return PLEASE_PROVIDE_YOUR_PARKING_TICKET;
         }
     }
 
