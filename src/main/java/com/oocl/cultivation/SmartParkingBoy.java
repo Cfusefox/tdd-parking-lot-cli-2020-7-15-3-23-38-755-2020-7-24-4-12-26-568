@@ -2,6 +2,10 @@ package com.oocl.cultivation;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends GeneralParkingBoy {
 
@@ -13,30 +17,15 @@ public class SmartParkingBoy extends GeneralParkingBoy {
 
     @Override
     public CarTicket parkingCar(Car car) {
-        int maxNullVolume = maxVolumeNumber(parkingLots);
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getVolume() - parkingLot.getParkingRoom().size() == maxNullVolume) {
-                CarTicket carTicket = parkingLot.parkingCar(car);
-                if (carTicket != null) {
-                    return carTicket;
-                }
+
+        Optional<ParkingLot> optionalParkingLot = parkingLots.stream().max(Comparator.comparing(ParkingLot::getAvailableLocations));
+        if (optionalParkingLot.isPresent()) {
+            if (optionalParkingLot.get().getAvailableLocations() > 0) {
+                this.errorMessage = "Not enough position.";
             }
         }
-        this.errorMessage = "Not enough position.";
-        return null;
+        return optionalParkingLot.map(parkingLot -> parkingLot.parkingCar(car)).orElse(null);
+
+
     }
-
-    private int maxVolumeNumber(ArrayList<ParkingLot> parkingLots) {
-        final int[] max = {0};
-        parkingLots.stream().forEach(parkingLot -> {
-            int nullVolume = parkingLot.getVolume() - parkingLot.getParkingRoom().size();
-            if (max[0] < nullVolume) {
-                max[0] = nullVolume;
-            }
-        });
-        return max[0];
-    }
-
-
-
 }

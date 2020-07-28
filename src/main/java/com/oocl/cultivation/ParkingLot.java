@@ -20,8 +20,8 @@ public class ParkingLot implements ParkingCarBehavior {
         this.errorMessage = "";
     }
 
-    public boolean getAvailableLocations() {
-        return this.volume - this.parkingRoom.size() > 0;
+    public int getAvailableLocations() {
+        return this.volume - this.parkingRoom.size();
     }
 
     public String getErrorMessage() {
