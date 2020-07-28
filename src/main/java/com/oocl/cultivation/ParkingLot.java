@@ -7,7 +7,7 @@ public class ParkingLot implements ParkingCarBehavior {
 
     private static final String NOT_ENOUGH_POSITION = "Not enough position.";
     private static final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket.";
-    private static final int DEFAULT_VOLUE = 10;
+    private static final int DEFAULT_VOLUME = 10;
     LinkedHashMap<CarTicket, Car> parkingRoom = new LinkedHashMap<>();
     private int volume;
 
@@ -16,7 +16,7 @@ public class ParkingLot implements ParkingCarBehavior {
     }
 
     public ParkingLot() {
-        this.volume = DEFAULT_VOLUE;
+        this.volume = DEFAULT_VOLUME;
     }
 
     public int getAvailableLocations() {
