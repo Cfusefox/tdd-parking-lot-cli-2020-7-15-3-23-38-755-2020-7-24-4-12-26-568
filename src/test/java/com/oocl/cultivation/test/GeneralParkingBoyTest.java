@@ -53,14 +53,13 @@ public class GeneralParkingBoyTest {
     @Test
     void should_return_null_when_fetch_car_from_parking_lot_when_given_null_ticket() {
         //given
-        CarTicket carTicket = null;
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
         parkingLots.add(parkingLot);
         GeneralParkingBoy parkingBoy = new GeneralParkingBoy(parkingLots);
 
         //when
-        Car car = parkingBoy.fetchCar(carTicket);
+        Car car = parkingBoy.fetchCar(null);
 
         //then
         assertNull(car);
